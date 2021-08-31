@@ -19,17 +19,14 @@ class Concert:
     #定数
     waite = 3
 
-    #URLを開く
-    def open(self,url,obj={}):
+    #セレニウム準備
+    def __init__(self):
         #webdriverを起動（バージョン違いなら自動インストールされる）
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.driver.get(url)
-        self.driver.implicitly_wait(10)
         self.driver.maximize_window()
-        self.rsleep(self.waite)
 
-    #URLを遷移
-    def get(self,url,obj={}):
+    #URLを開く
+    def open(self,url,obj={}):
         self.driver.get(url)
         self.driver.implicitly_wait(10)
         self.rsleep(self.waite)
